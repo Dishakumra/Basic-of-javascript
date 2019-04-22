@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h1>To-do list</h1>
+<h2>Add elements</h2>
+<input type="text" placeholder="now what" id="in"></input>
+<button type="button" id="add">Add</button>
+<div id ="list">task</div>
+
+
+
+<script>
+var arr = [];
+var input=document.getElementById("in");
+var add=document.getElementById("add");
+//var x=document.getElementById("x");
+var list=document.getElementById("list");
+
+add.onclick=function(event)
+{
+
+  //key=event.keyCode;
+  var value=input.value;
+  console.log(input.value);
+  if(value=="")
+   {
+     alert("List cannot be empty");
+     return
+   }
+    var elem=document.createElement("li");
+    var cross=document.createElement("button");
+      cross.innerHTML='X';
+    elem.innerHTML=value;
+    elem.appendChild(cross);
+    list.appendChild(elem);
+    arr.push(value);
+    input.value="";
+
+
+    cross.onclick=function(event)
+    {
+      list.removeChild(elem);
+
+    }
+
+
+}
+
+
+</script>
+</body>
+</html>
